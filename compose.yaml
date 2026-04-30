@@ -10,6 +10,10 @@ services:
       - hf-cache:/root/.cache/huggingface
     environment:
       HF_TOKEN: "${HF_TOKEN:-}"
+      TQ4_K_BITS: "${TQ4_K_BITS:-4}"
+      TQ4_V_BITS: "${TQ4_V_BITS:-4}"
+      TQ4_USE_FUSED_PAGED: "${TQ4_USE_FUSED_PAGED:-0}"
+      TQ4_USE_INT8_PREFILL: "${TQ4_USE_INT8_PREFILL:-0}"
     command:
       - "${MODEL_ID:-facebook/opt-125m}"
       - "--host"
